@@ -1,0 +1,15 @@
+2023-10-27 14:02:11 SYSTEM INFO Firewall rules updated
+2023-10-27 14:15:33 admin_ops WARN Manual override on Port 22
+2023-10-27 14:18:01 SYSTEM ERROR Failed authentication attempt from 192.168.1.100
+2023-10-27 14:22:45 jdoe WARN Accessed sensitive directory /var/log/auth
+2023-10-27 14:50:10 SYSTEM INFO Routine malware scan completed
+2023-10-27 15:05:22 UNKNOWN ERROR Unauthorized protocol detected on Intranet from 10.0.0.5
+2023-10-27 15:12:33 SYSTEM ERROR Multiple failed login attempts from 192.168.1.100
+2023-10-27 15:18:45 admin_ops INFO User account locked due to suspicious activity
+2023-10-27 15:25:11 SYSTEM WARN High CPU usage detected on server-01
+2023-10-27 15:30:22 UNKNOWN ERROR Port scan detected from 203.0.113.1
+2023-10-27 15:35:33 jdoe INFO Successful login after account unlock
+2023-10-27 15:40:44 SYSTEM ERROR Database connection timeout
+2023-10-27 15:45:55 admin_ops WARN Configuration file modified
+2023-10-27 15:50:11 SYSTEM INFO Backup completed successfully
+2023-10-27 15:55:22 UNKNOWN ERROR Suspicious file access pattern detected

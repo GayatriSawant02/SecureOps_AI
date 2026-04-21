@@ -2,6 +2,7 @@
 # Python
 .venv/
 __pycache__/
+.env
 
 # Frontend
 frontend/node_modules/

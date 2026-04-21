@@ -1,0 +1,101 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "SecureOps.AI Monitoring",
+    "tags": ["secureops", "monitoring"],
+    "timezone": "browser",
+    "panels": [
+      {
+        "id": 1,
+        "title": "Request Rate",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(requests_total[5m])",
+            "legendFormat": "Requests per second"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "id": 2,
+        "title": "Error Rate",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(errors_total[5m])",
+            "legendFormat": "Errors per second"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 0
+        }
+      },
+      {
+        "id": 3,
+        "title": "Response Time",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "response_time_average_seconds",
+            "legendFormat": "Average response time"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 8
+        }
+      },
+      {
+        "id": 4,
+        "title": "System Resources",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "cpu_percent",
+            "legendFormat": "CPU Usage %"
+          },
+          {
+            "expr": "memory_percent",
+            "legendFormat": "Memory Usage %"
+          },
+          {
+            "expr": "disk_percent",
+            "legendFormat": "Disk Usage %"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 8
+        }
+      }
+    ],
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "timepicker": {},
+    "templating": {
+      "list": []
+    },
+    "annotations": {
+      "list": []
+    },
+    "refresh": "5s",
+    "schemaVersion": 16,
+    "version": 0,
+    "links": []
+  }
+}
