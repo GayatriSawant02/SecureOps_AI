@@ -10,14 +10,11 @@ import {
   Settings, 
   LogOut 
 } from 'lucide-react';
-import { useAuth } from '../context/AuthContext';
 
 const Sidebar = () => {
-  const { logout } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    logout();
     navigate('/');
   };
 

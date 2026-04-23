@@ -1,10 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { Filter, Download, Terminal, Upload, FileText, AlertCircle, CheckCircle, X, CloudUpload } from 'lucide-react';
-import { useAuth } from '../../context/AuthContext';
 import { ApiService } from '../../services/api';
 
 const Logs = () => {
-  const { getAuthHeaders } = useAuth();
   const [filter, setFilter] = useState('ALL');
   const [selectedFile, setSelectedFile] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
@@ -14,7 +12,7 @@ const Logs = () => {
   const [dragActive, setDragActive] = useState(false);
   const fileInputRef = useRef(null);
 
-  const apiService = new ApiService({ getAuthHeaders });
+  const apiService = new ApiService();
 
   const mockLogs = [
     { id: '10293', date: '2023-10-27 14:02:11', user: 'SYSTEM', event: 'Firewall rules updated', type: 'INFO' },
@@ -122,7 +120,20 @@ const Logs = () => {
     }
   };
 
-  const logs = analysisResult ? [] : mockLogs; // Show mock logs when no analysis result
+  const getLogsToDisplay = () => {
+    if (analysisResult && analysisResult.logs && analysisResult.logs.length > 0) {
+      return analysisResult.logs.map(log => ({
+        id: log.line_number ? log.line_number.toString() : Math.random().toString(),
+        date: log.timestamp || '-',
+        user: log.user || log.ip || 'SYSTEM',
+        event: log.raw_line || '-',
+        type: ['failed_login', 'invalid_user'].includes(log.action) ? 'ERROR' : ['connection_issue'].includes(log.action) ? 'WARN' : 'INFO'
+      }));
+    }
+    return analysisResult ? [] : mockLogs; // Show empty logs if analysis result is present but has no logs, otherwise mock logs
+  };
+
+  const logs = getLogsToDisplay();
   const filteredLogs = logs.filter(log => filter === 'ALL' || log.type === filter);
 
   const formatFileSize = (bytes) => {

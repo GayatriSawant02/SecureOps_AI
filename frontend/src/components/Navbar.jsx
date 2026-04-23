@@ -27,7 +27,7 @@ const Navbar = () => {
               <Link to="/" className={`px-3 py-2 font-medium ${isActive('/')}`}>Home</Link>
               <Link to="/about" className={`px-3 py-2 font-medium ${isActive('/about')}`}>About Us</Link>
               <Link to="/contact" className={`px-3 py-2 font-medium ${isActive('/contact')}`}>Contact</Link>
-              <Link to="/login" className="btn-outline ml-4">Sign In</Link>
+              <Link to="/dashboard" className="btn-outline ml-4">Dashboard</Link>
             </div>
           </div>
           <div className="-mr-2 flex md:hidden">
@@ -47,7 +47,7 @@ const Navbar = () => {
             <Link to="/" className="block px-3 py-2 text-base font-medium text-white hover:bg-cyber-800">Home</Link>
             <Link to="/about" className="block px-3 py-2 text-base font-medium text-white hover:bg-cyber-800">About</Link>
             <Link to="/contact" className="block px-3 py-2 text-base font-medium text-white hover:bg-cyber-800">Contact</Link>
-            <Link to="/login" className="block px-3 py-2 text-base font-medium text-cyber-neon mt-4 border-t border-cyber-700 pt-4">Sign In</Link>
+            <Link to="/dashboard" className="block px-3 py-2 text-base font-medium text-cyber-neon mt-4 border-t border-cyber-700 pt-4">Dashboard</Link>
           </div>
         </div>
       )}

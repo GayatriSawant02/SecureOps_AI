@@ -1,12 +1,9 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
-import { useAuth } from '../context/AuthContext';
 import { Bell, Search, User } from 'lucide-react';
 
 const DashboardLayout = () => {
-  const { user } = useAuth();
-
   return (
     <div className="flex h-screen bg-cyber-900 overflow-hidden text-gray-200">
       {/* Sidebar */}
@@ -37,8 +34,8 @@ const DashboardLayout = () => {
                 <User className="h-5 w-5 text-white" />
               </div>
               <div className="hidden md:block">
-                <div className="text-sm font-medium text-white">{user?.name || 'Operator'}</div>
-                <div className="text-xs text-cyber-neon">{user?.role || 'System Admin'}</div>
+                <div className="text-sm font-medium text-white">Operator</div>
+                <div className="text-xs text-cyber-neon">System Admin</div>
               </div>
             </div>
           </div>

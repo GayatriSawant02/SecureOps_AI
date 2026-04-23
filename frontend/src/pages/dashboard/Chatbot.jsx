@@ -1,11 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User, Sparkles, AlertCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useAuth } from '../../context/AuthContext';
 import { ApiService } from '../../services/api';
 
 const Chatbot = () => {
-  const { getAuthHeaders } = useAuth();
   const [messages, setMessages] = useState([
     { id: 1, text: "System online. I am your SecureOps AI assistant. How can I augment your operations today?", sender: 'ai' }
   ]);
@@ -13,7 +11,7 @@ const Chatbot = () => {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
 
-  const apiService = new ApiService({ getAuthHeaders });
+  const apiService = new ApiService();
 
   const predefinedPrompts = [
     "Scan network for anomalies",

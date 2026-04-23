@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { useAuth } from '../../context/AuthContext';
 import { Save, User, Bell, Shield, Moon, Sun } from 'lucide-react';
 
 const Settings = () => {
-  const { user } = useAuth();
   const [theme, setTheme] = useState('dark');
 
   return (
@@ -21,15 +19,15 @@ const Settings = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm text-gray-400 mb-2">Display Name</label>
-              <input type="text" className="input-field" defaultValue={user?.name || ''} />
+              <input type="text" className="input-field" defaultValue="Operator" />
             </div>
             <div>
               <label className="block text-sm text-gray-400 mb-2">Email Address</label>
-              <input type="email" className="input-field" defaultValue={user?.email || ''} readOnly />
+              <input type="email" className="input-field" defaultValue="operator@secureops.ai" readOnly />
             </div>
             <div>
               <label className="block text-sm text-gray-400 mb-2">Role</label>
-              <input type="text" className="input-field bg-cyber-900 border-none text-cyber-neon" defaultValue={user?.role || ''} readOnly disabled />
+              <input type="text" className="input-field bg-cyber-900 border-none text-cyber-neon" defaultValue="System Admin" readOnly disabled />
             </div>
           </div>
           <button className="btn-primary mt-4 flex items-center gap-2">

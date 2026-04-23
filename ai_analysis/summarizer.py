@@ -30,4 +30,5 @@ def summarize_threats(
         "summary": summary,
         "findings": findings,
         "metrics": totals,
+        "logs": threat_data.get("entries", []),
     }

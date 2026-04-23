@@ -82,7 +82,6 @@ def get_me():
         return jsonify({"error": "Failed to get user information"}), 500
 
 @api.route("/upload", methods=["POST"])
-@jwt_required()
 def upload_log():
     try:
         uploaded_file = request.files.get("file")
@@ -113,7 +112,6 @@ def upload_log():
         return jsonify({"error": "Unable to process uploaded file."}), 500
 
 @api.route("/analyze", methods=["POST"])
-@jwt_required()
 def analyze_text():
     try:
         payload = request.get_json(silent=True) or {}
@@ -141,7 +139,6 @@ def analyze_text():
         return jsonify({"error": "Unable to analyze provided text."}), 500
 
 @api.route("/chat", methods=["POST"])
-@jwt_required()
 def chat():
     try:
         data = request.get_json()
